@@ -7,7 +7,7 @@ def check_valid_input(letter_guessed, old_letters_guessed):
     :param old_letters_guessed: A list containing the letters the player has guessed so far.
     :type old_letters_guessed: list
     :return: True if the input is valid and has not been guessed before, otherwise False.
-    :rtype: bool
+    :retype: bool
     """
     if len(letter_guessed) != 1 or not letter_guessed.isalpha():
         return False
@@ -26,7 +26,7 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
     :param old_letters_guessed: A list containing the letters the player has guessed so far.
     :type old_letters_guessed: list
     :return: True if the letter was successfully added, otherwise False.
-    :rtype: bool
+    :retype: bool
     """
     if check_valid_input(letter_guessed, old_letters_guessed):
         old_letters_guessed.append(letter_guessed.lower())
