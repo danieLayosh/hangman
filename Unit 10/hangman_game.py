@@ -180,21 +180,21 @@ def game_loop(secret_word, old_letters_guessed, MAX_TRIES, num_of_tries):
   while num_of_tries < MAX_TRIES:
     letter = input("\nGuess a letter: ")
 
-    if try_update_letter_guessed(letter, old_letters_guessed):
-      if letter.lower() not in secret_word:
+    if try_update_letter_guessed(letter, old_letters_guessed): # if the letter is legal
+      if letter.lower() not in secret_word: # if the letter is not in the secret word
         print(":(")
         num_of_tries += 1
-        print_hangman(num_of_tries)
+        print_hangman(num_of_tries) # print the hangman
       
-      print(show_hidden_word(secret_word, old_letters_guessed))
-    else:
+      print(show_hidden_word(secret_word, old_letters_guessed)) # print the hidden word
+    else: # if the letter is illegal
       print("letter is illegal\n")
       
-    if check_win(secret_word, old_letters_guessed):
+    if check_win(secret_word, old_letters_guessed): # if the player has guessed all the letters in the secret word
       print("WIN")
       break
     
-  if num_of_tries == MAX_TRIES:
+  if num_of_tries == MAX_TRIES: # if the player has reached the max number of tries
     print("LOSE")
     print("The word was: " + secret_word)  
 
@@ -202,8 +202,10 @@ def start_game():
   """
   init and start the game
   """
-  os.system('cls')
-  opening_screen()
+  os.system('cls') # clear the screen
+
+  opening_screen() # print the opening screen
+
   file_path = input("Enter file path: ")
   word_index = int(input("Enter word index: "))
   print("\nLet's start!\n")
@@ -215,7 +217,7 @@ def start_game():
   print_hangman(num_of_tries)
   print(show_hidden_word(secret_word, old_letters_guessed))
   
-  game_loop(secret_word, old_letters_guessed, MAX_TRIES, num_of_tries)
+  game_loop(secret_word, old_letters_guessed, MAX_TRIES, num_of_tries) # start the game
   
 def main():
   """
