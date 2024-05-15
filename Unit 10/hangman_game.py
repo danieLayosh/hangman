@@ -1,3 +1,5 @@
+import os
+
 def opening_screen():
   """
   Displays the opening screen of the Hangman game.
@@ -200,6 +202,7 @@ def start_game():
   """
   init and start the game
   """
+  os.system('cls')
   opening_screen()
   file_path = input("Enter file path: ")
   word_index = int(input("Enter word index: "))
